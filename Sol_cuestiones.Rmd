@@ -27,7 +27,7 @@ cantidad_caracteres
 ```{r}
 texto <- tolower(texto)
 
-sin_consonantes <- gsub("[^aeiou]", "", texto)
+sin_consonantes <- gsub("[^a]", "", texto)
 
 cantidad_vocales <- nchar(sin_consonantes)
 
@@ -50,6 +50,17 @@ sin_espacios <- gsub("[^ ]", "", texto)
 num_espacios <- nchar(sin_espacios)
 
 num_espacios
+```
+
+# Cuestion 2
+
+```{r}
+library(readr)
+Nosotros <- read_delim("data/Nosotros.tsv", 
+    delim = "\t", escape_double = FALSE, 
+    trim_ws = TRUE)
+edad <- Nosotros$FechaNac(DD-MM-YY)
+fecha_convertida <- as.Date(edad, format = "%d/%m/%Y")
 ```
 
 
